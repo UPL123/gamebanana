@@ -12,14 +12,14 @@ An API Wrapper for [`gamebanana.com`](https://gamebanana.com)
 Import the library using [`Deno`](https://deno.land)
 
 ```ts
-import { Client } from 'https://deno.land/x/gamebanana/mod.ts';
+import * as gamebanana from "https://deno.land/x/gamebanana@1.0.1/mod.ts";
 ```
 
 If you want to login your app and get your API key, you can use the [`login`](#login) method.
 
 ### Client Methods
 
-#### <a name="login"></a>Client.login(options: [`ClientConfig`](#clientconfig), format?: keyof [`FormatTypes`](#formattypes)): Promise&lt;string&gt;
+#### <a name="login"></a>gamebanana.login(options: [`ClientConfig`](#clientconfig), format?: keyof [`FormatTypes`](#formattypes)): Promise&lt;string&gt;
 
 Validates your app's API password, App ID and user ID and returns an authentication token on success.
 
@@ -27,7 +27,7 @@ Validates your app's API password, App ID and user ID and returns an authenticat
 * `format?`: The format to use for the response. See [`FormatTypes`](#formattypes) for more information.
 
 ```ts
-var token = Client.login({
+var token = gamebanana.login({
     apiPassword: "<YOUR API PASSWORD>",
     appId: "<YOUR APP ID>",
     userId: "<YOUR USER ID>",
@@ -35,13 +35,13 @@ var token = Client.login({
 console.log(token) // -> <YOU API TOKEN>
 ```
 
-#### <a name="item"></a>Client.Item
+#### <a name="item"></a>gamebanana.Item
 
 A class for interacting with the Item API.
-Init with `new Client.Item();`
+Init with `new gamebanana.Item();`
 
 ```ts
-const item = new Client.Item();
+const item = new gamebanana.Item();
 ```
 
 ##### <a name="item-data"></a>Item.data(item: [`ItemData`](#itemdata) | [`ItemData[]`](#itemdata), format?: keyof [`FormatTypes`](#formattypes)): Promise&lt;string&gt;
@@ -88,13 +88,13 @@ item.identifyById({
 }); // -> true
 ```
 
-#### <a name="list"></a>Client.List
+#### <a name="list"></a>gamebanana.List
 
 A class for interacting with the List API.
-Init with `new Client.List();`
+Init with `new gamebanana.List();`
 
 ```ts
-const list = new Client.List();
+const list = new gamebanana.List();
 ```
 
 ##### <a name="list-like"></a> List.like(itemType: "Game" | "Member", field: string, match: string, format?: keyof [`FormatTypes`](#formattypes)): Promise&lt;string&gt;
@@ -275,10 +275,10 @@ list.new({
 #### <a name="member"></a>Client.Member
 
 A class for interacting with the Member API.
-Init with `new Client.Member();`
+Init with `new gamebanana.Member();`
 
 ```ts
-const member = new Client.Member();
+const member = new gamebanana.Member();
 ```
 
 ##### <a name=member-identify></a>Member.identify(userName: string | string[], format?: keyof [`FormatTypes`](#formattypes)): Promise&lt;string&gt;
@@ -307,7 +307,7 @@ member.identifyById(1382); // ->
 
 ### Types
 
-#### <a name="clientconfig></a>ClientConfig {}
+#### <a name="clientconfig"></a>ClientConfig {}
 
 * `apiPassword`: You API password.
 * `apiId`: Your API ID.
