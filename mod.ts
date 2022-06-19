@@ -4,8 +4,8 @@ import { List } from "./src/List.ts";
 import { Member } from "./src/Member.ts";
 
 export {
-    login: login,
-    Item: Item,
-    List: List,
-    Member: Member  
+    login,
+    Item,
+    List,
+    Member  
 };
