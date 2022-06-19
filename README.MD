@@ -12,7 +12,7 @@ An API Wrapper for [`gamebanana.com`](https://gamebanana.com)
 Import the library using [`Deno`](https://deno.land)
 
 ```ts
-import { Client } from 'https://deno.land/x/gamebanana-api/mod.ts';
+import { Client } from 'https://deno.land/x/gamebanana/mod.ts';
 ```
 
 If you want to login your app and get your API key, you can use the [`login`](#login) method.
